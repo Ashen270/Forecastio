@@ -32,6 +32,10 @@ const Forecastio = () => {
         const temprature = document.getElementsByClassName("weathertemp");
         const location = document.getElementsByClassName("weatherlocation");
 
+        
+
+
+
    }
 
 return (
