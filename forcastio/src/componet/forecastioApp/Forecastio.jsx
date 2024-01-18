@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Forecastio.css'
 
 import search_icon from '../assests/search.png';
@@ -13,6 +13,9 @@ import wind_icon from '../assests/wind.png';
 const Forecastio = () => {
 
    let api_key = "0125b1043dbd646bad4b9a2fe954022a";
+
+
+   const[wicon,setWicon] = useState(cloud_icon);
 
    const search = async () => {
          const elemet =document.getElementsByClassName("cityInput")
@@ -32,7 +35,50 @@ const Forecastio = () => {
         const temprature = document.getElementsByClassName("weathertemp");
         const location = document.getElementsByClassName("weatherlocation");
 
+        humidity[0].innerHTML = data.main.humidity+" Km/h";
+        wind[0].innerHTML = data.wind.speed+"%";
+        temprature[0].innerHTML = data.main.temp+"°k";
+        location[0].innerHTML = data.name ;
         
+        if(data.weather[0].icon==="01d" || data.weather[0].icon==="01n")
+        {
+
+          setWicon(clear_icon);
+        }
+        else if((data.weather[0].icon==="02d" || data.weather[0].icon==="02n"))
+        {
+
+          setWicon(cloud_icon);
+        }
+        else if((data.weather[0].icon==="03d" || data.weather[0].icon==="03n"))
+        {
+
+          setWicon(drizzle_icon);
+        }
+        else if((data.weather[0].icon==="04d" || data.weather[0].icon==="04n"))
+        {
+
+          setWicon(drizzle_icon);
+        }
+        else if((data.weather[0].icon==="09d" || data.weather[0].icon==="09n"))
+        {
+
+          setWicon(rain_icon);
+        }
+        else if((data.weather[0].icon==="10d" || data.weather[0].icon==="10n"))
+        {
+
+          setWicon(rain_icon);
+        }
+        else if((data.weather[0].icon==="13d" || data.weather[0].icon==="13n"))
+        {
+
+          setWicon(snow_icon);
+        }
+        else
+        {
+          setWicon(clear_icon);
+        }
 
 
 
