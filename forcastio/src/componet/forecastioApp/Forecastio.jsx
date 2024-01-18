@@ -23,7 +23,6 @@ const Forecastio = () => {
    
         {
             return 0;
-
         }
 
         let url =`https://api.openweathermap.org/data/2.5/weather?q=${elemet[0].value}&appid=${api_key}`;
